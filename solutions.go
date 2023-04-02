@@ -63,3 +63,32 @@ func priceCalculations() {
 	}
 	fmt.Println(finalPrice)
 }
+
+func printEvenNumbers() {
+	var x, y, i int
+	first := true
+
+	_, err := fmt.Scanf("%d %d", &x, &y)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	if x == y && x%2 == 0 {
+		fmt.Println(x)
+		return
+	} else if x%2 == 0 {
+		i = x
+	} else {
+		i = x + 1
+	}
+
+	for ; i <= y; i += 2 {
+		if first {
+			fmt.Printf("%d", i)
+			first = false
+		} else {
+			fmt.Printf(" %d", i)
+		}
+	}
+}
