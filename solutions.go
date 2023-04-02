@@ -114,3 +114,10 @@ func secondOccurrenceOfF() {
 	}
 	fmt.Println(foundIndex)
 }
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return gcd(a, a%b)
+}
