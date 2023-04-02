@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 )
 
 func SquareRootResolver() {
@@ -120,4 +121,14 @@ func gcd(a, b int) int {
 		return a
 	}
 	return gcd(a, a%b)
+}
+
+func integerToBinaryConversion() {
+	var n int64
+	_, err := fmt.Scanf("%d", &n)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println(strconv.FormatInt(n, 2))
 }
