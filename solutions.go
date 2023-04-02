@@ -35,3 +35,17 @@ func SquareRootResolver() {
 		fmt.Printf("%.2f %.2f", res, -res)
 	}
 }
+
+func soCalledImpossibleFunc() {
+	var a int32
+	var b int32
+	_, err := fmt.Scanf("%d %d", a, b)
+	if err != nil {
+		return
+	}
+	if b != 0 {
+		fmt.Println(a / b)
+	} else {
+		fmt.Println("Impossible")
+	}
+}
