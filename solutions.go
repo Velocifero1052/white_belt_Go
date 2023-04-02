@@ -92,3 +92,25 @@ func printEvenNumbers() {
 		}
 	}
 }
+
+func secondOccurrenceOfF() {
+	var word string
+	_, err := fmt.Scanf("%s", &word)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	foundIndex := -2
+	first := true
+
+	for i := 0; i < len(word); i++ {
+		if string(word[i]) == "f" && first {
+			foundIndex = -1
+			first = false
+		} else if string(word[i]) == "f" && !first {
+			foundIndex = i
+			break
+		}
+	}
+	fmt.Println(foundIndex)
+}
