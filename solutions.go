@@ -6,9 +6,7 @@ import (
 )
 
 func SquareRootResolver() {
-	var a float32
-	var b float32
-	var c float32
+	var a, b, c float32
 	_, err := fmt.Scanf("%f %f %f", &a, &b, &c)
 	if err != nil {
 		return
@@ -37,10 +35,10 @@ func SquareRootResolver() {
 }
 
 func soCalledImpossibleFunc() {
-	var a int32
-	var b int32
-	_, err := fmt.Scanf("%d %d", a, b)
+	var a, b int32
+	_, err := fmt.Scanf("%d %d", &a, &b)
 	if err != nil {
+		fmt.Println(err.Error())
 		return
 	}
 	if b != 0 {
@@ -48,4 +46,20 @@ func soCalledImpossibleFunc() {
 	} else {
 		fmt.Println("Impossible")
 	}
+}
+
+func priceCalculations() {
+	var n, a, b, x, y, finalPrice float32
+	_, err := fmt.Scanf("%f %f %f %f %f", &n, &a, &b, &x, &y)
+	finalPrice = n
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	if n > a && n > b {
+		finalPrice = n - n*(y/100.0)
+	} else if n > a && n <= b {
+		finalPrice = n - n*(x/100.0)
+	}
+	fmt.Println(finalPrice)
 }
