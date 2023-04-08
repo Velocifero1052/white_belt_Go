@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"golang.org/x/exp/slices"
 	"math"
 	"strconv"
 )
@@ -177,4 +178,50 @@ func lower_than_average() {
 		}
 	}
 
+}
+
+func worry_count() {
+	var people []int
+	var numberOfCommands int
+	_, err := fmt.Scanf("%d\n", &numberOfCommands)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defaultValue := 1
+	worryValue := -1
+	var command string
+	for i := 0; i < numberOfCommands; i++ {
+		_, err = fmt.Scanf("%s", &command)
+		if command == "WORRY" {
+			var index int
+			_, err = fmt.Scanf("%d\n", &index)
+			if err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+			people[index] = worryValue
+		} else if command == "COME" {
+			var number int
+			_, err = fmt.Scanf("%d\n", &number)
+			if err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+			if number > 0 {
+				for j := 0; j < number; j++ {
+					people = append(people, defaultValue)
+				}
+			} else if number < 0 {
+				number = -number
+				for j := 0; j < number; j++ {
+					people = people[:len(people)-1]
+				}
+			}
+
+		} else if command == "WORRY_COUNT" {
+			worryCount := slices.IndexFunc(people, func(elem int) bool { return elem == worryValue })
+			fmt.Println(worryCount)
+		}
+	}
 }
