@@ -132,3 +132,49 @@ func integerToBinaryConversion() {
 	}
 	fmt.Println(strconv.FormatInt(n, 2))
 }
+
+func lower_than_average() {
+	var size_of_array int
+	_, err := fmt.Scanf("%d\n", &size_of_array)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	temps := make([]int, size_of_array)
+
+	for i := 0; i < size_of_array; i++ {
+		var num int
+		_, err = fmt.Scanf("%d", &num)
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+		temps[i] = num
+	}
+
+	sum := 0
+	for temp := range temps {
+		sum += temp
+	}
+
+	average := sum / len(temps)
+	var higherThanAverage []int
+	for temp := range temps {
+		if temp > average {
+			higherThanAverage = append(higherThanAverage, temp)
+		}
+	}
+
+	fmt.Println(len(higherThanAverage))
+	first := true
+	for average := range higherThanAverage {
+		if first {
+			first = false
+			fmt.Printf("%d", average)
+		} else {
+			fmt.Printf(" %d", average)
+		}
+	}
+
+}

@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	integerToBinaryConversion()
+	lower_than_average()
 }
